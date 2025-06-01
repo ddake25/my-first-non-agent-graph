@@ -1,6 +1,7 @@
 # Import packages
 from typing import TypedDict
 from langgraph.graph import StateGraph, START, END
+from view_graph_image import generate_graph_structure
 
 
 # Create Agent State
@@ -24,3 +25,6 @@ graph_builder.add_edge(START, "Onboarder")
 graph_builder.add_edge("Onboarder", END)
 
 graph = graph_builder.compile()
+
+# Generate Graph Structure
+generate_graph_structure(graph)
