@@ -11,9 +11,8 @@ class AgentState(TypedDict):
     
 # Create node to onboard user
 def onboarding_node(state: AgentState):
-    user_name = input("What is your name: ")
-    state["name"] = user_name
-    state["messages"] = f"Hey {state['name']} 🙂\n We are excited to have you join our department!"
+    # state["name"] = user_name
+    state["messages"] = f"Hey {state['name']} 🙂\nWe are excited to have you join our department!"
     
     return state
 
@@ -28,3 +27,9 @@ graph = graph_builder.compile()
 
 # Generate Graph Structure
 generate_graph_structure(graph)
+
+# Run graph
+result = graph.invoke({"name": "John"})
+
+# Output result
+print(result['messages'])
